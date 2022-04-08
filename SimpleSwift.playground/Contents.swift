@@ -12,6 +12,10 @@ func factorial(number: Int) -> Int {
 
 func calculate(_ args: [String]) -> Int {
     var count = 0;
+    if(args.count == 0) {
+        return 0;
+        
+    }else{
     var result: Array<Substring> = []
     for i in 0...args.count - 1{
         let split = args[i].split(separator: " ")
@@ -66,10 +70,14 @@ func calculate(_ args: [String]) -> Int {
             }
         }
     }
+    }
     return count;
 }
 
 func calculate(_ arg: String) -> Int {
+    if(arg.count == 0){
+        return 0;
+    }
     let Split = arg.split(separator: " ")
     var result = 0;
     if(Split.count == 3){
@@ -114,7 +122,7 @@ func calculate(_ arg: String) -> Int {
 }
 
 
-/* Abdiwahid test cases */
+/* ABDIWAHID'S TEST CASES */
 
 calculate(["100", "*", "200"]) == 20000
 
@@ -127,6 +135,13 @@ calculate(["-200", "/", "5"]) == -40
 calculate(["0", "-", "0"]) == 0
 
 calculate(["20", "-", "70"]) == -50
+
+calculate([]) == 0  // testing on an empty array
+
+calculate(["-999999999", "+", "999999999"]) == 0 // testing with interg max and integer min value
+
+
+calculate("") == 0 // testing on an empty string
 
 
 //**************************************
@@ -194,12 +209,46 @@ calculate("1 -2 3 -4 5 count") == 5
  
 // Implement calculate([String]) and calculate(String)
 // to use floating-point values
-/*
+
 func calculate(_ args: [String]) -> Double {
-    return -1.0
+    var count = 0.0;
+    var result: Array<Substring> = []
+    for i in 0...args.count - 1{
+        let split = args[i].split(separator: " ")
+        result.append(split[0])
+        var none = Int(split[0])
+        if(none != nil){
+            none = Int(split[0]);
+        }
+        
+    }
+    if(result.count == 3){
+        let number1 = Double(result[0]);
+        let number2 = Double(result[2]);
+        if(number1 != nil && number2 != nil){
+        if(result[1].starts(with: "+")){
+            count = number1! + number2!;
+        }else if(result[1].starts(with: "-")){
+            count = number1! - number2!;
+        }else if(result[1].starts(with: "*")){
+            count = number1! * number2!;
+        }else if(result[1].starts(with: "%")){
+           // count = number1! % number2!;
+        }else{
+           count = number1! / number2!
+        }
+        }
+        
+    }
+    return count;
 }
 func calculate(_ arg: String) -> Double {
-    return -1.0
+    var result = 0;
+    let Split = arg.split(separator: " ");
+    if(Split[Split.count - 1].starts(with: "count")){
+       result = Split.count - 1;
+   }
+    return Double(result);
 }
 
 calculate(["2.0", "+", "2.0"]) == 4.0
@@ -208,5 +257,5 @@ calculate(["12.0", "-", "12.0"]) == 0.0
 calculate(["2.5", "*", "2.5"]) == 6.25
 calculate(["2.0", "/", "2.0"]) == 1.0
 calculate(["2.0", "%", "2.0"]) == 0.0
-calculate("1.0 2.0 3.0 4.0 5.0 count") == 5
-*/
+calculate("1.0 2.0 3.0 4.0 5.0 count") == 5.0
+
