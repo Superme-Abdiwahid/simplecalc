@@ -140,7 +140,14 @@ calculate([]) == 0  // testing on an empty array
 
 calculate(["-999999999", "+", "999999999"]) == 0 // testing with interg max and integer min value
 
-calculate(String((Int.max)) + "+" + String(Int.min)) == 0
+calculate(String((Int.max)) + "+" + String(Int.min)) == 0  // testing with interg max and integer min value
+
+calculate(String((Int.max)) + "/" + String(Int.min)) == 0  // testing with interg max and integer min value
+
+calculate(String((Int.max)) + "%" + String(Int.min)) == 0  // testing with interg max and integer min value
+
+calculate(String((Int.max)) + "*" + String(Int.min)) == 0  // testing with interg max and integer min value
+
 
 calculate("") == 0 // testing on an empty string
 
