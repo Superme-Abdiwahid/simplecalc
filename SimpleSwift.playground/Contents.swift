@@ -140,6 +140,7 @@ calculate([]) == 0  // testing on an empty array
 
 calculate(["-999999999", "+", "999999999"]) == 0 // testing with interg max and integer min value
 
+calculate(String((Int.max)) + "+" + String(Int.min)) == 0
 
 calculate("") == 0 // testing on an empty string
 
@@ -250,6 +251,7 @@ func calculate(_ arg: String) -> Double {
    }
     return Double(result);
 }
+
 
 calculate(["2.0", "+", "2.0"]) == 4.0
 calculate([".5", "+", "1.5"]) == 2.0
